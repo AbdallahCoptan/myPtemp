@@ -1,0 +1,124 @@
+% =============================================================================
+% File:  mySlides.tex --
+% Author(s): Abdallah Ibrahim (abdallah.cisco@gmail.com)
+% Time-stamp: <Thu 2017-08-17 22:22 svarrette>
+%
+% Copyright (c) 2020 Abdallah Ibrahim<Sebastien.Varrette@uni.lu>
+%
+% For more information:
+% - LaTeX: http://www.latex-project.org/
+% - Beamer: https://bitbucket.org/rivanvx/beamer/
+% - LaTeX symbol list:
+% http://www.ctan.org/tex-archive/info/symbols/comprehensive/symbols-a4.pdf
+% =============================================================================
+
+\documentclass{beamer}
+% \documentclass[draft]{beamer}
+\usepackage{_style}
+
+% The key part to use my theme -- if you precise nothing, the image that
+% illustrate the slides is assumed to be images/slides_image.jpg
+\usetheme[image=images/logo_ULHPC.pdf]{Falkor}
+
+% Not integrated in my theme as not everybody wants that
+\AtBeginSection[]
+{
+  \frame{
+    \frametitle{Summary}
+    {\scriptsize\tableofcontents[currentsection]}
+  }
+}
+
+\graphicspath{{images/}} % Add this directory to the searched paths for graphics
+
+
+%%%%%%%%%% Header %%%%%%%%%%%%
+\title{My template}
+\subtitle{Overview and Open Challenges}
+
+\author[Abdallah Ibrahim \& al.]{
+  \underline{Abdallah Ibrahim}
+}
+\institute[PCOG Research unit]{
+  Parallel Computing and Optimization Group (\href{http://pcog.uni.lu}{PCOG}),
+  University of Luxembourg (\href{http://www.uni.lu}{UL}), Luxembourg
+}
+
+% Mandatory to **declare** a logo to be placed on the bottom right -- normally the
+% university logo. ADAPT ACCORDINGLY:
+\pgfdeclareimage[height=0.8cm]{logo}{images/logo_UL.pdf}
+
+\date{}
+
+%%%%%%%%%%%%% Body %%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{frame}
+  \vspace{2.5em}
+  \titlepage
+\end{frame}
+
+% ......
+\frame{
+  \frametitle{Summary}
+  {\scriptsize
+    \tableofcontents
+  }
+}
+
+% ========================
+\input{_content.md} % Markdown content
+% ========================
+
+% ======================== END =========================
+\section*{Thank you for your attention...}
+\frame{
+  \frametitle{Questions?}
+  % ~~~~~~~~~~~~~~
+  \begin{columns}
+    \column{0.5\textwidth}
+    % \emph{Contact}\\
+    {\tiny
+      \emph{Abdallah Ibrahim}\\
+      ~~~~ \structure{University of Luxembourg, Belval Campus}:\\
+      ~~~~ Maison du Nombre, 4th floor\\
+      ~~~~ 2, avenue de l'Universit\'e\\
+      ~~~~ L-4365 Esch-sur-Alzette\\
+      ~~~~ \textit{mail:} \href{mailto:abdallah.cisco@gmail.com}{abdallah.cisco@gmail.com}\\
+    }
+    \column{0.5\textwidth}
+    % \scalebox{8}{\emph{?}}
+    \includegraphics[width=1.5in]{question.jpg}
+  \end{columns}
+  % Below is the table of content over 2 columns
+  \vfill
+  \begin{multicols}{2}
+    {\tiny \tableofcontents}
+  \end{multicols}
+
+}
+
+\newcounter{finalframe}
+\setcounter{finalframe}{\value{framenumber}}
+
+% %.......
+% \frame{
+%   \frametitle{}
+%   \vfill
+%   \centering \LARGE Appendix\footnote{notice the slide number below...}
+%   \vfill
+% }
+
+\setcounter{framenumber}{\value{finalframe}}
+
+\end{document}
+
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% eof
+%
+% Local Variables:
+% mode: latex
+% mode: flyspell
+% mode: visual-line
+% TeX-master: "mySlides.tex"
+% End:
